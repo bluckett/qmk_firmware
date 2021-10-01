@@ -363,6 +363,7 @@ void oled_task_user(void) {
       break;
     case 3:
       render_f13_logo();
+      break;
     case 4:
       render_light_logo();
       break;
