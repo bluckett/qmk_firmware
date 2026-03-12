@@ -14,9 +14,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <avr/io.h>
-#include <avr/pgmspace.h>
-#include <stdint.h>
 #include "analog.h"
 
 static uint8_t aref = ADC_REF_POWER;
@@ -99,7 +96,7 @@ int16_t adc_read(uint8_t mux) {
 #if defined(MUX4)
     ADMUX = aref | (mux & (_BV(MUX4) | _BV(MUX3) | _BV(MUX2) | _BV(MUX1) | _BV(MUX0)));
 #else
-    ADMUX  = aref | (mux & (_BV(MUX3) | _BV(MUX2) | _BV(MUX1) | _BV(MUX0)));
+    ADMUX = aref | (mux & (_BV(MUX3) | _BV(MUX2) | _BV(MUX1) | _BV(MUX0)));
 #endif
 
     // Start the conversion
